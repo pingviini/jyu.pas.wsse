@@ -4,5 +4,11 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="jyu.pas.wsse">
 
+  <browser:page
+    for="..interface.IWsse"
+    name="wsse-controlpanel"
+    class=".controlpanel.WsseControlPanel"
+    permission="cmf.ManagePortal"
+  />
 
 </configure>

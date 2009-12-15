@@ -1,4 +1,7 @@
+from zope.i18nmessageid import MessageFactory
 import install
+
+_ = MessageFactory('jyu.pas.wsse')
 
 install.register_wsse_plugin()
 

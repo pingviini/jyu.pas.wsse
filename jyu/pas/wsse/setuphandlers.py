@@ -4,7 +4,7 @@ from StringIO import StringIO
 from install import manage_add_wsse_helper
 
 def importVarius(context):
-    ''' Install the ExamplePAS plugin
+    ''' Install the WSSE plugin
     '''
     out = StringIO()
     portal = context.getSite()
@@ -13,7 +13,7 @@ def importVarius(context):
     installed = uf.objectIds()
 
     if 'WSSE PAS Plugin' not in installed:
-        addExamplePlugin(uf, 'wsse', 'WSSE PAS Plugin')
+        manage_add_wsse_helper(uf, 'wsse', 'WSSE PAS Plugin')
         activatePluginInterfaces(portal, 'wsse', out)
     else:
         print >> out, 'wsse already installed'

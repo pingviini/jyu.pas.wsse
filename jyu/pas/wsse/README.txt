@@ -42,10 +42,32 @@ we add 'Wsse Helper' to acl_users:
     >>> myhelper = WsseHelper('myplugin', 'Wsse Helper')
     >>> self.portal.acl_users['myplugin'] = myhelper
 
-and so on. Continue your tests here
 
-    >>> interact(locals())
+We have WSSE plugin added so now we start testing if it works.
+First we change news folder to private and then log off our admin
+user.
+	
+	>>> portal_url = self.portal.absolute_url()
+	>>> browser.open(portal_url + '/news')
+	>>> browser.getLink('Advanced...').click()
+    >>> browser.getControl(name='workflow_action').getControl(value='retract').selected = True
+    >>> browser.getControl('Save').click()
+    >>> browser.contents
+    '...status...private...'
+
+    >>> browser.getLink('Log out').click()
+    >>> browser.open(portal_url + '/news/atombrowser')
+	>>> browser.contents
+	'...Log in...'
+
+TODO: Need to add test user
+
+Now we add WSSE Headers
+
+	>>> browser.addHeader('Authorization', 'WSSE profile="UsernameToken"')
+	>>> browser.addHeader('X-WSSE', 'UsernameToken Username="wsseuser", PasswordDigest="quR/EWLAV4xLf9Zqyw4pDmfV9OY=", Nonce="d36e316282959a9ed4c89851497a717f", Created="2003-12-15T14:43:07Z")
+
+	>>> interact(locals())
+
     >>> 'ALL OK'
     'ALL OK'
-
-

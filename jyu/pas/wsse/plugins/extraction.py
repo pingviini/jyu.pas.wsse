@@ -19,6 +19,12 @@ class ExtractionPlugin(BasePlugin):
         """
         creds = {}
 
-        #add your code here
+        if request.hasattr('X-WSSE'):
+            nonce = request.get('nonce')
+            created = request.get('Created')
+        else:
+            pass
+            
+        
 
         return creds
