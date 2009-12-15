@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<componentregistry>
+ <adapters/>
+ <utilities>
+  <utility
+     interface="jyu.pas.wsse.interface.IWsse"
+     object="portal_wsse"/>
+ </utilities>
+</componentregistry>
