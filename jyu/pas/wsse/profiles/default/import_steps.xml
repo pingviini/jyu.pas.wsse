@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="jyupaswsse_various" version="0.1"
+               handler="jyu.pas.wsse.setuphandlers.importVarious"
+               title="WSSE Pas Plugin">
+  </import-step>
+</import-steps>

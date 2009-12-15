@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="jyu.pas.wsse">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package=".browser" />
+
+  <gs:registerProfile
+      name="default"
+      title="WSSE PAS Plugin"
+      directory="profiles/default"
+      description="Add PlonePAS WSSE authentication Plugin"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+</configure>
